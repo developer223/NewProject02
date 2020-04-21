@@ -6,12 +6,13 @@ import android.util.Log;
 import android.view.View;
 
 public class ch10Actity extends AppCompatActivity {
-
+private Integer count;//点击按键的计数器
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(ch10Actity.class.toString(),"onCreate");
         setContentView(R.layout.layout_ch10_1);
+        count=0;
     }
 public  void finishClick(View view){
     finish();//关闭界面
@@ -54,13 +55,25 @@ public  void finishClick(View view){
         Log.i(ch10Actity.class.toString(),"onDestroy");
     }
 
+    //计数的方法
+    public void counter(View view){
+        count++;
+        Log.i(ch10Actity.class.toString(),"counter"+count);
+    }
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        //数据保存在bindle对象中，保存一些界面信息
+        outState.putInt("counter",count);
         super.onSaveInstanceState(outState);
+        Log.i(ch10Actity.class.toString(),"onSaveInstanceState");
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        //恢复之前保存的状态信息
+        count=savedInstanceState.getInt("counter");
+        Log.i(ch10Actity.class.toString(),"onRestoreInstanceState");
     }
 }
