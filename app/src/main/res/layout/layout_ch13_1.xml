@@ -12,4 +12,25 @@
         android:onClick="write"
         android:text="wirteFile"
         android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:onClick="read"
+        android:text="readFile"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="host ip"
+        android:id="@+id/ch13_1_ip"
+        android:layout_height="match_parent" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="host port"
+        android:id="@+id/ch13_1_port"
+        android:layout_height="match_parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:onClick="saveSharePref"
+        android:text="saveSharePref"
+        android:layout_height="wrap_content" />
 </LinearLayout>

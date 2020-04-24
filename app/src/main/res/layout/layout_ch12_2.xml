@@ -58,4 +58,5 @@
         android:id="@+id/ch12_2_unbind"
         android:onClick="bindClick"
         android:layout_height="wrap_content" />
+
 </LinearLayout>
