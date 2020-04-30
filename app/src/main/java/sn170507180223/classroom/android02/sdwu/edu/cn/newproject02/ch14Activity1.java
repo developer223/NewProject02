@@ -30,7 +30,7 @@ public class ch14Activity1 extends AppCompatActivity {
             //事物处理
             sqLiteDatabase.beginTransaction();//开启事物
             ContentValues contentValues=new ContentValues();
-            contentValues.put("stuname","Tom");
+            contentValues.put("stuname","marry");
             contentValues.put("stutel","13666666666");
             sqLiteDatabase.insert("student",null,contentValues);
             sqLiteDatabase.setTransactionSuccessful();///所有操作结束后调用本方法，将数据保存在数据库
@@ -48,7 +48,7 @@ public class ch14Activity1 extends AppCompatActivity {
         SQLiteDatabase sqLiteDatabase=myOpenHelper.getReadableDatabase();
         try{
             //游标类型
-          Cursor cursor=sqLiteDatabase.rawQuery("select * from student where stuname=?",new String[]{"Tom"});
+          Cursor cursor=sqLiteDatabase.rawQuery("select * from student where stuname=?",new String[]{"marry"});//多个条件用and连接
             //利用循环遍历游标
             while (cursor.moveToNext()){
                int id=cursor.getInt(cursor.getColumnIndex("id"));
@@ -60,7 +60,7 @@ public class ch14Activity1 extends AppCompatActivity {
         }catch (Exception e){
             Log.e(ch14Activity1.class.toString(),e.toString());
         }finally {
-            sqLiteDatabase.endTransaction();//结束事物
+
             sqLiteDatabase.close();//关闭数据库
         }
 
